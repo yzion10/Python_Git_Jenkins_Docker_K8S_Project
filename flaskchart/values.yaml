@@ -1,0 +1,6 @@
+replicaCount: 5
+image:
+  repository: yzion10/dockerapp
+  version: "1"
+service:
+  type: LoadBalancer
