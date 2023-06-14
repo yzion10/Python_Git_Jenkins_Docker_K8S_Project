@@ -225,7 +225,8 @@ pipeline
 
                     try
                     {
-                        bat 'minikube service flaskchart --url >k8s_url.txt'
+                        bat 'git-bash -c "minikube service flaskchart --url > k8s_url.txt"'
+                        //bat 'minikube service flaskchart --url >k8s_url.txt'
 
                         isSuccess = true
                     }
@@ -273,6 +274,7 @@ pipeline
                 script
                 {
                     bat 'helm delete flaskchart'
+                    bat 'taskkill /IM git-bash.exe /F'
                 }
             }
         }
