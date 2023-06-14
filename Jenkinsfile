@@ -255,7 +255,7 @@ pipeline
                 script
                 {
                     bat 'pip install -r requirements.txt'
-                    bat 'K8S_backend_testing.py'
+                    bat 'python K8S_backend_testing.py'
                 }
             }
         }
