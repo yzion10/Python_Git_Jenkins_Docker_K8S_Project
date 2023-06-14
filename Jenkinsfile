@@ -190,8 +190,8 @@ pipeline
                     try
                     {
                         bat 'helm install flaskchart flaskchart'
-                        bat 'helm upgrade --install flaskchart flaskchart --set image.version="${imageTag}"'
-                        bat "sed -i 's/version: "[0-9]*"/version: "${imageTag}"/' flaskchart/values.yaml"
+                        bat "helm upgrade --install flaskchart flaskchart --set image.version=${imageTag}"
+                        bat "sed -i 's/version: \"[0-9]*\"/version: ${imageTag}/' flaskchart/values.yaml"
                         bat 'helm upgrade --install flaskchart flaskchart -f flaskchart/values.yaml'
 
                         isSuccess = true
