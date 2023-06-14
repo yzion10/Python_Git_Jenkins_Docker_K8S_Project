@@ -285,6 +285,7 @@ pipeline
                      body: 'The Jenkins pipeline failed (Python_Git_Jenkins_Docker_K8S_Project)',
                      to: 'yzion10@gmail.com',
                      from: 'yzion10@gmail.com'
+
         }
     }
 }
