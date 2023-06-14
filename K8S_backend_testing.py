@@ -196,10 +196,3 @@ if __name__ == "__main__":
     print('\n*********** deleteRequest ***********\n')
     writeToLog('\n*********** deleteRequest ***********\n')
     deleteRequest(getUrl())
-
-if __name__ == "__main__":
-    print('\n*********** stopRestServer ***********\n')
-    writeToLog('\n*********** stopRestServer ***********\n')
-    res = clean_environment.stopRestServer()
-    print(res)
-    writeToLog(res)
