@@ -22,7 +22,7 @@ helm package (Chart.yaml, values.yaml, flask-deploy.yaml, flask_service.yaml)
 
 **prerequisites installations before running this project:**
 
-python3, java, jenkins, Docker, Git, kubernetes (minikube)
+python3, java, jenkins, Docker, Git, kubernetes (minikube), Helm package
 
 1. Docker daemon running (Docker Desktop)
 2. Minikube running
