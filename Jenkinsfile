@@ -225,9 +225,13 @@ pipeline
 
                     try
                     {
-                        bat 'git-bash -c "minikube service flaskchart --url > k8s_url.txt"'
+                        // Because the cmd window stays open and not closed after this command:
+                        // bat 'minikube service flaskchart --url >k8s_url.txt'
+                        // we will using the external url http://127.0.0.1:5000/users/1
+                        // which is exposed and run by the minikube tunnel
+                        
                         //bat 'minikube service flaskchart --url >k8s_url.txt'
-
+                        
                         isSuccess = true
                     }
                     catch (Exception e)
