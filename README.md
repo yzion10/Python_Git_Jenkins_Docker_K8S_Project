@@ -90,7 +90,7 @@ GO to the folder project and:
 *************************************************************************************************************************
 A simple batch commands to test the Kubernetes (minikube) steps locally (without pipeline) on cmd. (run it according to this steps):
 GO to the folder project and:
-1. helm create flaskchart
+1. helm create flaskchart (Only for the first time)
 2. helm install flaskchart flaskchart
 3. helm upgrade --install flaskchart flaskchart --set image.version=1
 4. sed -i 's/version: \"[0-9]*\"/version: 1/' flaskchart/values.yaml
