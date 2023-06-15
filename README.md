@@ -28,6 +28,7 @@ python3, java, jenkins, Docker, Git, kubernetes (minikube), Helm package
 2. Minikube running
 3. Existing repo on Docker hub
 4. Existing credentials user in Jenkins (for Docker HUB connection).
+5. run minikube tunnel (on cmd\git-bash run: "minikube tunnel")
 
 **It combined the following files:**
 
@@ -70,9 +71,12 @@ jenkinsfile - A jenkins pipeline script (in groovy) which connect to git reposit
 9. Test dockerized app - will run the docker_backend_testing.py
 10. Clean container - will call docker-compose down and delete local image
 11. Deploy Helm Chart - deploy the service and run the container based on what we defined in the helm package files
-12. Write Service URL Into File - this stage will write into file (k8s_url.txt) the url service were create by the helm package
-13. Test deployed app – will run the K8S_backend_testing.py
-14. Clean HELM environment – will call HELM delete
+12. Write Service URL Into File - this stage will write into file (k8s_url.txt) the url service were create by the helm package.
+    Because the cmd window stays open and not closed after the command: "minikube service flaskchart --url >k8s_url.txt"
+    this job is disabled and the url will exposed and run by the minikube tunnel (see prerequisites installations).
+    The K8S_backend_testing.py tests the flask server according to this url ('http://127.0.0.1:5000/users/1')
+14. Test deployed app – will run the K8S_backend_testing.py
+15. Clean HELM environment – will call HELM delete
 
 *************************************************************************************************************************
 A simple batch commands to test the docker steps locally (without pipeline) on cmd. (run it according to this steps):
@@ -89,7 +93,7 @@ GO to the folder project and:
 
 *************************************************************************************************************************
 A simple batch commands to test the Kubernetes (minikube) steps locally (without pipeline) on cmd. (run it according to this steps):
-GO to the folder project and:
+GO to the folder project and: 
 1. helm create flaskchart (Only for the first time)
 2. helm install flaskchart flaskchart
 3. helm upgrade --install flaskchart flaskchart --set image.version=1
