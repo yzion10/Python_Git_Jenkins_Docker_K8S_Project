@@ -7,13 +7,18 @@ import os
 def IsIn(value, *args):
     return value in args
 
-# def getUrl():
-#     return 'http://127.0.0.1:5000/users/1'
-
 def getUrl():
-    with open('k8s_url.txt', 'r') as file:
-        url = file.read().strip() + '/users/1'
-    return url
+    return 'http://127.0.0.1:5000/users/1'
+
+# Because the cmd stayed open and not close after the command
+# minikube service flaskchart --url >k8s_url.txt
+# we will using the external url http://127.0.0.1:5000/users/1
+# which will expose and run by the minikube tunnel
+
+# def getUrl():
+#     with open('k8s_url.txt', 'r') as file:
+#         url = file.read().strip() + '/users/1'
+#     return url
 
 def getUserData():
     userData = {'user_name': 'yosi1'}

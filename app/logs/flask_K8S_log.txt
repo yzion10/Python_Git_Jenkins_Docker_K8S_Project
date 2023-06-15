@@ -1,0 +1,39 @@
+
+*********** Running tests on the Dockerized app... ***********
+
+
+*********** postRequest ***********
+
+user yosi1 created successfully 
+
+this is the json output:
+{'status': 'ok', 'user_added': 'yosi1'}
+
+*********** getRequest ***********
+
+result user name: yosi1 
+apiUserName: yosi1 
+
+this is the json output:
+{'status': 'ok', 'user_name': 'yosi1'}
+
+*********** checkPostUserStoredInDB ***********
+
+dbUserName: yosi1 
+apiUserName: yosi1 
+
+names are equal
+
+*********** putRequest ***********
+
+user yosi1 updated successfully 
+
+this is the json output:
+{'status': 'ok', 'user_updated': 'yosi1'}
+
+*********** deleteRequest ***********
+
+user ID: 1 deleted successfully 
+
+this is the json output:
+{'status': 'ok', 'user_deleted': '1'}
