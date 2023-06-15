@@ -273,8 +273,8 @@ pipeline
             {
                 script
                 {
-                    bat 'helm delete flaskchart'
                     bat 'taskkill /IM git-bash.exe /F'
+                    bat 'helm delete flaskchart'
                 }
             }
         }
