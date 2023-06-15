@@ -28,7 +28,8 @@ python3, java, jenkins, Docker, Git, kubernetes (minikube), Helm package
 2. Minikube running
 3. Existing repo on Docker hub
 4. Existing credentials user in Jenkins (for Docker HUB connection).
-5. run minikube tunnel (on cmd\git-bash run: "minikube tunnel")
+5. run minikube tunnel (on cmd\git-bash run: "minikube tunnel") - see documetation about
+   minikube tunnel to LoadBalancer at https://minikube.sigs.k8s.io/docs/handbook/accessing/ 
 
 **It combined the following files:**
 
