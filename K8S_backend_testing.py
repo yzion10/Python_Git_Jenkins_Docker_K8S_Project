@@ -44,8 +44,8 @@ def writeToLog(text):
         f.write(text + '\n')
 
 if __name__ == "__main__":
-    print('\n*********** Running tests on the Dockerized app... ***********\n')
-    writeToLog('\n*********** Running tests on the Dockerized app... ***********\n')
+    print('\n*********** Running tests on the Kubernetes (minikube) app... ***********\n')
+    writeToLog('\n*********** Running tests on the Kubernetes (minikube) app... ***********\n')
 
 # 1
 # POST - test a post of a new user data with the REST API method
