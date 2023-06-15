@@ -69,15 +69,34 @@ jenkinsfile - A jenkins pipeline script (in groovy) which connect to git reposit
 8. Run docker compose - will run in detach mode (run the container based on what we defined in the docker-compose.yml)
 9. Test dockerized app - will run the docker_backend_testing.py
 10. Clean container - will call docker-compose down and delete local image
+11. Deploy Helm Chart - deploy the service and run the container based on what we defined in the helm package files
+12. Write Service URL Into File - this stage will write into file (k8s_url.txt) the url service were create by the helm package
+13. Test deployed app – will run the K8S_backend_testing.py
+14. Clean HELM environment – will call HELM delete
 
 *************************************************************************************************************************
-A simple batch commands to test this project locally (without pipeline) on cmd. (run it according to this steps):
+A simple batch commands to test the docker steps locally (without pipeline) on cmd. (run it according to this steps):
+GO to the folder project and:
 1. docker build -t yzion10/dockerapp:1 .
 2. docker push yzion10/dockerapp:1
 3. echo IMAGE_TAG=1 > .env
 4. docker-compose -f docker-compose.yml up -d --build
-5. python docker_backend_testing.py
-6. docker-compose down
-7. docker image rmi yzion10/dockerapp:1
+5. pip install -r requirements.txt
+6. python docker_backend_testing.py
+7. docker-compose down
+8. docker image rmi yzion10/dockerapp:1
 *************************************************************************************************************************
 
+*************************************************************************************************************************
+A simple batch commands to test the Kubernetes (minikube) steps locally (without pipeline) on cmd. (run it according to this steps):
+GO to the folder project and:
+1. helm create flaskchart
+2. helm install flaskchart flaskchart
+3. helm upgrade --install flaskchart flaskchart --set image.version=1
+4. sed -i 's/version: \"[0-9]*\"/version: 1/' flaskchart/values.yaml
+5. helm upgrade --install flaskchart flaskchart -f flaskchart/values.yaml
+6. minikube service flaskchart --url >k8s_url.txt
+7. pip install -r requirements.txt
+8. python K8S_backend_testing.py
+9. helm delete flaskchart
+*************************************************************************************************************************
