@@ -105,3 +105,8 @@ GO to the folder project and:
 8. python K8S_backend_testing.py
 9. helm delete flaskchart
 *************************************************************************************************************************
+
+**Authors**
+* Yosi Zion | Oren Elraz
+* yzion10@gmail.com
+* https://www.linkedin.com/in/yosi-zion-bb90a2181/
